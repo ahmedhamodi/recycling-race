@@ -56,16 +56,17 @@ class Display extends React.Component {
   render() {
     return (
       <div className="display-container">
+        <h1>Current Leader: </h1>
         <h2>Local Data Handling</h2>
         <BasicTable data={this.state.dataPostgres} />
         <h2>Global Data Handling</h2>
         <BasicTable  data={this.props.storeData} />
-        <h2>Firebase Data (json)</h2>
+        {/* <h2>Firebase Data (json)</h2>
         {
           Object.entries(this.state.dataFirebase).length === 0
             ? "**Firebase not set up**"
             : JSON.stringify(this.state.dataFirebase, null, 2)
-        }
+        } */}
       </div>
     )
   }
