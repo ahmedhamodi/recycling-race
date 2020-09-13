@@ -65,10 +65,24 @@ class Display extends React.Component {
     return totalScore
   }
 
+  getHighScore() {
+    let maxScore = 0
+    let teacherName = ""
+    this.state.dataPostgres.map(val => {
+      let score = this.calculateScore(val)
+      if (score > maxScore) {
+        maxScore = score
+        teacherName = val.teacher
+      }
+    })
+    return teacherName
+  }
+
   render() {
     return (
       <div className="display-container">
-        <h2>Current Leader: </h2>
+        <h2>Current Leader:</h2>
+        <p>{this.getHighScore()}'s classroom is in the lead!</p>
         <h2>Local Data Handling</h2>
         <BasicTable data={this.state.dataPostgres} />
         <h2>Global Data Handling</h2>
