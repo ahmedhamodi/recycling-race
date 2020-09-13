@@ -6,6 +6,7 @@
     "react-scripts": "^3.4.3"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "firebase": "^7.20.0",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
