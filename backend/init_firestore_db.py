@@ -20,7 +20,8 @@ RECYCLED_MATERIAL_TYPES = [
     'computer_parts',
     'glass',
     'paper',
-    'wood'
+    'wood',
+    'metal'
 ]
 
 def write_to_firebase_from_csv(filename):

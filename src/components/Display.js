@@ -53,14 +53,30 @@ class Display extends React.Component {
     // this.fetchDataFirebase();
   }
 
+  calculateScore(val) {
+    let totalScore = 0
+
+    Object.keys(val).forEach(e => {
+      if (e !== "id" && e !== "teacher") {
+        totalScore += val[e]
+      }
+    });
+    
+    return totalScore
+  }
+
   render() {
     return (
       <div className="display-container">
-        <h1>Current Leader: </h1>
+        <h2>Current Leader: </h2>
         <h2>Local Data Handling</h2>
         <BasicTable data={this.state.dataPostgres} />
         <h2>Global Data Handling</h2>
         <BasicTable  data={this.props.storeData} />
+        <h2>Scores</h2>
+        {this.state.dataPostgres.map(val => 
+          <p>{val.teacher}'s classroom: {this.calculateScore(val)}</p>
+        )}
         {/* <h2>Firebase Data (json)</h2>
         {
           Object.entries(this.state.dataFirebase).length === 0
